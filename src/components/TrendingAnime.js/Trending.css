@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: white;
+}
+
+.trending-flex {
+   display: flex;
+   overflow-y: auto;
+   overflow-x: scroll;
+}
+
+.trending-flex::-webkit-scrollbar {
+   width: 5px;
+   height: 7.5px;
+   border-radius: 10px;
+}
+
+.trending-flex::-webkit-scrollbar-thumb {
+   background: grey;
+   border-radius: 10px;
+}
+
+.trending-flex::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 10px;
+}
+
+.wrap {
+    width: 750px;
+    cursor: pointer;
+}
+
+.wrap:hover {
+    opacity: 0.5;
+}
+
+.trending-item {
+    position: relative;
+    width: 750px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+}
+
+
+.trending-item-image {
+    position: relative;
+    width: 100%;
+}
+
+.trending-item-description {
+    position: relative;
+}
+
+.popup-container {
+    position: fixed;
+}
+
+.popup {
+    height: 90vh;
+    width: 100%;
+    background: #2A2B2A;
+    color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.popup::-webkit-scrollbar {
+    display: none;
+}
+
+
+.close-button-container {
+    position: relative;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.close-button {
+    position: relative;
+    top: 1em;
+    right: 1em;
+    z-index: 1000;
+}
+
+
+.popup-cover-image {
+    width: 100%;
+}
+
+
+.cover-image {
+    position: relative;
+    width: 100%;
+    top: -2em;
+}
+
+.popup-poster-image {
+    width: 20%;
+}
+
+.poster-image {
+    position: relative;
+    /*
+    width: 15em;
+    top: -10em;
+    */
+  
+   
+
+}
+
+.description {
+    width: 60%;
+    position: relative;
+    right: -30em;
+    top: -22em;
+}

@@ -1,0 +1,23 @@
+.close-button-container {
+    
+}
+
+.close-button {
+    cursor: pointer;
+}
+
+/*
+.search-button-container {
+    background: #2A2B2A;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50px;
+}
+*/
+
+.search-button-container {
+    width: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    background:#2A2B2A;
+}

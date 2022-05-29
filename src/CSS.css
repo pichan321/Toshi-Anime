@@ -1,0 +1,22 @@
+.test { 
+    
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    width: 200px;
+    height: 350px;
+}
+
+.test-img {
+    width: 200px;
+    height: 350px;
+    z-index: -1;
+}
+
+.test-txt {
+    position: relative;
+    top: -10em;
+    height: 350px;
+    background: rgba(255,255,255,0.5);
+    z-index: 1000;
+}

@@ -1,0 +1,25 @@
+.input-and-search-icon {
+    display: flex;
+    background: white;
+    width: 250px;
+    border-radius: 12px;
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    
+}
+
+.input-box {
+    border-radius: 10px;
+    border: none;
+    width: 250px;
+}
+
+.input-box:focus {
+    border: none;
+    outline: none;
+}
+
+.search-icon {
+    position: relative;
+}

@@ -1,0 +1,64 @@
+body {
+
+}
+
+.navbar {
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-and-logo {
+    display: flex;
+}
+
+.search-anime-box {
+    position: absolute;
+    right: 1em;
+    border-radius: 10px;
+    height: 3em;
+}
+
+.logo {
+    border-radius: 50%;
+    height: 50px;
+}
+
+.menu-container {
+    position: absolute;
+    top: 3.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    background: #2A2B2A;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.menu {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+/*
+.menu {
+   
+
+    background: white;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    z-index: 1000;
+}
+*/
+
+.link {
+    padding: 0.1em 0.1em 0.1em 0.1em;
+}
+
+.link:active {
+    color: black;
+}
+
+ 

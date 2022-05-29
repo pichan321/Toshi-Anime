@@ -1,0 +1,9 @@
+.each-card {
+    height: auto;
+}
+
+.each-card-image {
+    width: 150px;
+    border-radius: 10px;
+}
+

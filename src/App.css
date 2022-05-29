@@ -1,0 +1,55 @@
+/*
+color scheme: '
+  "#4FD1C5"
+  #2A2B2A
+*/
+
+.App {
+  background: black;
+  height: auto;
+  z-index: auto;
+  overflow-x: hidden;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+
+
+.cards {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.card-item {
+  overflow: hidden;
+  border-radius: 10px;
+  width: 20vw;
+  cursor: pointer;
+}
+
+.card-item:hover {
+  opacity: 0.5;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.nav-and-menu {
+  position: relative;
+  z-index: 999;
+
+}
+
+.trending {
+  position: relative;
+  z-index: -1;
+}
+
+.popup-container {
+  z-index: 9999;
+}
