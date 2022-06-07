@@ -4,8 +4,7 @@
 
 ***
   <ul>
-    <li>Frameworks: React.js</li>
-    <li>Backend: RESTful API</li>
+    <li>Framework: React.js</li>
     <li>Deploy Server: Vercel</li>
   </ul>
 ***
