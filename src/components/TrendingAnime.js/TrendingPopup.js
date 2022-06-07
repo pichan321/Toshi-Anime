@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import CloseButton from '../Buttons/CloseButton';
-import './Trending.css';
+import './Popup.css';
+//import './Trending.css';
+
 
  
 export default function TrendingPopup({trendingPopup, setTrendingPopup, trendingPopupData}) {
@@ -27,8 +29,8 @@ export default function TrendingPopup({trendingPopup, setTrendingPopup, trending
                         <div className='col-0 col-lg-1'></div>
                         <div className='col-12 col-lg-10'>
                             <div className='popup'>
-                                <div className="close-button-container" onClick={onCloseButtonClick}>
-                                    <CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px"/>
+                                <div className="close-button-container d-flex d-flex justify-content-end" >
+                                    <CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px" onClick={onCloseButtonClick}/>
                                 </div>
                                 <div className='popup-cover-image'>
                                     <img className='cover-image' src={trendingPopupData.attributes.coverImage.large} alt={trendingPopupData.attributes.titles.en}/>
