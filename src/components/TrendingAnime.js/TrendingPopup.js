@@ -27,7 +27,9 @@ export default function TrendingPopup({trendingPopup, setTrendingPopup, trending
                         <div className='col-0 col-lg-1'></div>
                         <div className='col-12 col-lg-10'>
                             <div className='popup'>
-                                <div className="close-button-container" onClick={onCloseButtonClick}><CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px"/></div>
+                                <div className="close-button-container" onClick={onCloseButtonClick}>
+                                    <CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px"/>
+                                </div>
                                 <div className='popup-cover-image'>
                                     <img className='cover-image' src={trendingPopupData.attributes.coverImage.large} alt={trendingPopupData.attributes.titles.en}/>
                                 </div>
