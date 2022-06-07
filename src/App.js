@@ -14,6 +14,8 @@ import Anime from './components/Animes/Anime';
 import {BrowserRouter as Router, Route, Routes, Switch, Link, Navigate, useNavigate} from 'react-router-dom';
 import Home from './components/Pages/Home';
 import Search from './components/Pages/Search';
+import About from './components/Pages/About';
+import Support from './components/Pages/Support';
 /*
   <Nav/>
   <br/>
@@ -38,7 +40,8 @@ function App() {
     <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/search" element={<Search searchWord={searchWord} setSearchWord={setSearchWord} keyword={keyword}/>}/>
-    
+        <Route path="/about" element={<About/>}/>
+        <Route path="/support" element={<Support/>}/>
     </Routes> 
       <Footer/>
     </Router>

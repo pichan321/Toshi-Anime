@@ -37,6 +37,11 @@ body {
     border-radius: 20px;
 }
 
+.close-button-container {
+    position: relative;
+    right: 0em;
+}
+
 .close-button {
     position: relative;
     bottom: 0;
