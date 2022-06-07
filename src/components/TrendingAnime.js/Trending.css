@@ -75,22 +75,19 @@ h1 {
     display: none;
 }
 
-
+/*
 .close-button-container {
     position: relative;
-    display: flex;
-    justify-content: end;
-    width: 100%;
+    
     background: black;
-    height: auto;
     z-index: 1000;
 }
 
 .close-button {
-    position: relative;
+    position: absolute;
     right: 0em;
 }
-
+*/
 
 .popup-cover-image {
     width: 100%;

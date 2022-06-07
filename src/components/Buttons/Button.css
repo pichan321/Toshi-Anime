@@ -1,9 +1,9 @@
-.close-button-container {
-    
+.close-button-container-svg {
+ 
 }
 
-.close-button {
-    cursor: pointer;
+.close-button-svg {
+    background: white;
 }
 
 /*
