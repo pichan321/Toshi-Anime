@@ -47,11 +47,6 @@ export default function TrendingPopup({trendingPopup, setTrendingPopup, trending
                                     </div>
                                     <div className='row'>
                                         <div className='details'>
-                                            <div onClick={onCloseButtonClick}>
-                                                <CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px" />
-                                            </div>
-                                            
-                              
                                             <Button>Watch</Button>
                                             <p>Average Rating: {trendingPopupData.attributes.averageRating} / 100.0</p>
                                             <p>Next Episode: {trendingPopupData.attributes.nextRelease}</p>
