@@ -78,15 +78,13 @@ h1 {
 
 .close-button-container {
     position: relative;
-    display: flex;
-    justify-content: right;
     width: 100%;
+    right: 0em;
 }
 
 .close-button {
     position: relative;
-    top: 1em;
-    right: 1em;
+    bottom: 0em;
     z-index: 1000;
 }
 
