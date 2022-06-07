@@ -79,7 +79,7 @@ h1 {
 .close-button-container {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     width: 100%;
     background: black;
     height: auto;
