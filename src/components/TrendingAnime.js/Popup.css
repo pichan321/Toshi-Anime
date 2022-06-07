@@ -6,6 +6,13 @@
         z-index: 999999;
 }
 */
-.close-button { 
-    
+
+.popup-close-button-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.popup-close-button { 
+
 }

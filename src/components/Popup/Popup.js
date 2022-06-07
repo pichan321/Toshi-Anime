@@ -35,10 +35,11 @@ export default class Popup extends React.Component {
         <div className='row'>
             <div className='col-0 col-lg-1'></div>
             <div className='col-12 col-lg-10'>
+            <div className="popup-close-button-container text-end" onClick={() => this.onCloseButtonClick()}>
+                <CloseButton className="popup-close-button" color="#4FD1C5" width="30px" height="30px"/>
+            </div>
          <div className='popup'>
-        <div className="close-button-container" onClick={() => this.onCloseButtonClick()}>
-            <CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px"/>
-        </div>
+       
         <img src={this.props.data.images.jpg.large_image_url} alt=""/>     
         <p>{this.props.data.title_english ? this.props.data.title_english : this.props.data.title_japanese}</p>
         <p>{this.props.data.synopsis}</p>

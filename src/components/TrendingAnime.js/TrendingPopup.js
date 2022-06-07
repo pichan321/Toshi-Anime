@@ -28,10 +28,11 @@ export default function TrendingPopup({trendingPopup, setTrendingPopup, trending
                     <div className='row'>
                         <div className='col-0 col-lg-1'></div>
                         <div className='col-12 col-lg-10'>
+                            <div onClick={onCloseButtonClick} className="popup-close-button-container text-end">
+                                        <CloseButton className="popup-close-button" color="#4FD1C5" width="30px" height="30px" />
+                            </div>
                             <div className='popup'>
-                                <div className="close-button-container d-flex d-flex justify-content-end" >
-                                    <CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px" onClick={onCloseButtonClick}/>
-                                </div>
+                                
                                 <div className='popup-cover-image'>
                                     <img className='cover-image' src={trendingPopupData.attributes.coverImage.large} alt={trendingPopupData.attributes.titles.en}/>
                                 </div>
@@ -46,6 +47,11 @@ export default function TrendingPopup({trendingPopup, setTrendingPopup, trending
                                     </div>
                                     <div className='row'>
                                         <div className='details'>
+                                            <div onClick={onCloseButtonClick}>
+                                                <CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px" />
+                                            </div>
+                                            
+                              
                                             <Button>Watch</Button>
                                             <p>Average Rating: {trendingPopupData.attributes.averageRating} / 100.0</p>
                                             <p>Next Episode: {trendingPopupData.attributes.nextRelease}</p>

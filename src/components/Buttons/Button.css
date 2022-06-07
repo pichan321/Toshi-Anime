@@ -1,9 +1,9 @@
 .close-button-container-svg {
- 
+    z-index: 9999;
+    cursor: pointer;
 }
 
 .close-button-svg {
-    background: white;
 }
 
 /*
