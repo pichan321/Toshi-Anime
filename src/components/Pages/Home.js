@@ -8,12 +8,16 @@ import { Link } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 //import GoogleLogin from 'react-google-login';
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
+import { Auth0Provider } from "@auth0/auth0-react";
+import LoginButton from './LoginButton';
+
 
 export default function Home() {
     const [popup, setPopup] = useState(false);
     const [gmail, setGmail] = useState("");
     const [logout, setLogout] = useState(false)
+    const [photo, setPhoto] = useState("")
 
     const firebaseConfig = {
       apiKey: "AIzaSyCciSrlwEnNo_ZImX04RjHqdjKRwBstPDg",
@@ -23,6 +27,8 @@ export default function Home() {
       messagingSenderId: "1094842378063",
       appId: "1:1094842378063:web:cc39dbfe88fb448b14473a"
     };
+ 
+  
     
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -30,7 +36,40 @@ export default function Home() {
     const auth = getAuth(app);
 
     const provider = new GoogleAuthProvider();
+    
+    function signInWithGoogle() {
+      signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    console.log(result.user.photoURL)
+    
+    setPhoto(result.user.photoURL)
 
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+    }
+
+    function signOutGoogle() {
+      signOut(auth).then(() => {
+        // Sign-out successful.
+        console.log("Signed Out!")
+      }).catch((error) => {
+        // An error happened.
+      });
+    }
     /*
     signInWithPopup(auth, provider)
   .then((result) => {
@@ -126,11 +165,20 @@ export default function Home() {
     },[])
 
 
-    return (<div>
+    return (<>
+     
+    
+    <div>
+          
     	    <div className="App">
+      
          
+           
           <div id="buttonDiv"></div>
-          <button type="button" onClick={prompt}>Prompt</button>
+          <button type="button" onClick={signInWithGoogle}>Sign In</button>
+          <button type="button" onClick={signOutGoogle}>Sign Out</button>
+          {photo !== "" && <img src={photo} alt=""/>}
+          
       <div className='container-fluid'>
        
         <div className='row'>
@@ -148,5 +196,5 @@ export default function Home() {
        
       </div>
     </div>
-            </div>);
+            </div></>);
 }
