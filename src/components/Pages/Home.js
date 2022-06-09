@@ -51,7 +51,13 @@ export default function Home() {
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
-*/
+*/  function prompt() {
+  google.accounts.id.initialize({
+    client_id: "822223969254-ra5lshj8c87cn5mml2dfbms22e1boa8d.apps.googleusercontent.com",
+    callback: handleCallbackResponse
+  });
+    google.accounts.id.prompt()
+}
 
     const handleCallbackResponse = response => {
       console.log(response);
@@ -116,7 +122,7 @@ export default function Home() {
   //  document.getElementById("buttonDiv"),
   //  { theme: "outline", size: "large" }  // customization attributes
   //);
-    google.accounts.id.prompt(); // also display the One Tap dialog
+    //google.accounts.id.prompt(); // also display the One Tap dialog
     },[])
 
 
@@ -124,6 +130,7 @@ export default function Home() {
     	    <div className="App">
          
           <div id="buttonDiv"></div>
+          <button type="button" onClick={prompt}>Prompt</button>
       <div className='container-fluid'>
        
         <div className='row'>
