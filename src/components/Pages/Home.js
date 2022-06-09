@@ -219,7 +219,12 @@ export default function Home() {
     // ...
   });
     }
-
+    /*
+     <div id="buttonDiv"></div>
+          <button type="button" onClick={signInWithGoogle}>Sign In</button>
+          <button type="button" onClick={signOutGoogle}>Sign Out</button>
+          <button type="button" onClick={getResult}>Get</button>
+    */
 
     return (<>
      
@@ -230,10 +235,7 @@ export default function Home() {
       
          
            
-          <div id="buttonDiv"></div>
-          <button type="button" onClick={signInWithGoogle}>Sign In</button>
-          <button type="button" onClick={signOutGoogle}>Sign Out</button>
-          <button type="button" onClick={getResult}>Get</button>
+         
           {photo !== "" && <img src={photo} alt=""/>}
           
       <div className='container-fluid'>
