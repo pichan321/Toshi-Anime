@@ -4,8 +4,6 @@ import CloseButton from '../Buttons/CloseButton';
 import './Popup.css';
 //import './Trending.css';
 
-
- 
 export default function TrendingPopup({trendingPopup, setTrendingPopup, trendingPopupData}) {
     
     function onCloseButtonClick() {
@@ -42,17 +40,21 @@ export default function TrendingPopup({trendingPopup, setTrendingPopup, trending
                                             <img className='poster-image img-fluid mx-auto d-flex' src={trendingPopupData.attributes.posterImage.large} alt={trendingPopupData.attributes.titles.en}/>
                                         </div>
                                         <div className='col-12 col-lg-9'>
+                                            <h3>{trendingPopupData.attributes.titles.en_jp} ({trendingPopupData.attributes.titles.ja_jp}) <Button>Watch</Button></h3>
+                                            <br/>
                                             <p>{trendingPopupData.attributes.description}</p>
                                         </div>
                                     </div>
                                     <div className='row'>
                                         <div className='details'>
-                                            <Button>Watch</Button>
+                                            <br/>
                                             <p>Average Rating: {trendingPopupData.attributes.averageRating} / 100.0</p>
                                             <p>Next Episode: {trendingPopupData.attributes.nextRelease}</p>
+                                            <p>Episode Count: {trendingPopupData.attributes.episodeCount} episode(s)</p>
                                             <p>Episode Length: {trendingPopupData.attributes.episodeLength} mins</p>
                                             <p>Show Type: {trendingPopupData.attributes.showType}</p>
                                             <p>Start Date: {trendingPopupData.attributes.startDate}</p>
+                                            <p>End Date: {trendingPopupData.attributes.endDate}</p>
                                             <p>Ongoing: {trendingPopupData.attributes.status}</p>
                                         </div>
                                     </div>

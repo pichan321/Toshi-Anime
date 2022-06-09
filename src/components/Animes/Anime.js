@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Anime.css';
 import {BASE_URL} from '../API';
-import AnimePopup from './AnimePopup';
 import Popup from '../Popup/Popup';
 
 export default class Anime extends React.Component {
