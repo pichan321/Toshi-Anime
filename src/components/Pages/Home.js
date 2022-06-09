@@ -7,11 +7,51 @@ import API from '../API';
 import { Link } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 //import GoogleLogin from 'react-google-login';
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default function Home() {
     const [popup, setPopup] = useState(false);
     const [gmail, setGmail] = useState("");
     const [logout, setLogout] = useState(false)
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCciSrlwEnNo_ZImX04RjHqdjKRwBstPDg",
+      authDomain: "toshi-anime-eecb6.firebaseapp.com",
+      projectId: "toshi-anime-eecb6",
+      storageBucket: "toshi-anime-eecb6.appspot.com",
+      messagingSenderId: "1094842378063",
+      appId: "1:1094842378063:web:cc39dbfe88fb448b14473a"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+    const provider = new GoogleAuthProvider();
+
+    /*
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+*/
 
     const handleCallbackResponse = response => {
       console.log(response);
@@ -21,18 +61,18 @@ export default function Home() {
       console.log(a.email)
     };
 
-    setInterval(() => {
-     // google.accounts.id.initialize({
-     //   client_id: "822223969254-ra5lshj8c87cn5mml2dfbms22e1boa8d.apps.googleusercontent.com",
-     //   callback: handleCallbackResponse
-     // });
-      google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-        { theme: "outline", size: "large" }  // customization attributes
-      );
-    }, 5000);
+   // setInterval(() => {
+   //  // google.accounts.id.initialize({
+   //  //   client_id: "822223969254-ra5lshj8c87cn5mml2dfbms22e1boa8d.apps.googleusercontent.com",
+   //  //   callback: handleCallbackResponse
+   //  // });
+   //   google.accounts.id.renderButton(
+   //     document.getElementById("buttonDiv"),
+   //     { theme: "outline", size: "large" }  // customization attributes
+   //   );
+   // }, 5000);
 
-    
+    /*
     function signOut() {
       //google.accounts.id.disableAutoSelect();
      // google.accounts.id.signOu
@@ -55,7 +95,7 @@ export default function Home() {
     google.accounts.id.disableAutoSelect();
     setLogout(!logout)
     } 
-  
+  */
 
 
     useEffect(() => {
@@ -72,60 +112,18 @@ export default function Home() {
     client_id: "822223969254-ra5lshj8c87cn5mml2dfbms22e1boa8d.apps.googleusercontent.com",
     callback: handleCallbackResponse
   });
-  google.accounts.id.renderButton(
-    document.getElementById("buttonDiv"),
-    { theme: "outline", size: "large" }  // customization attributes
-  );
-  google.accounts.id.prompt(); // also display the One Tap dialog
-    },[gmail, logout])
+  //google.accounts.id.renderButton(
+  //  document.getElementById("buttonDiv"),
+  //  { theme: "outline", size: "large" }  // customization attributes
+  //);
+    google.accounts.id.prompt(); // also display the One Tap dialog
+    },[])
 
 
- //  <GoogleLogin
- //  clientId="822223969254-ra5lshj8c87cn5mml2dfbms22e1boa8d.apps.googleusercontent.com"
- //  buttonText="Login"
- //  onSuccess={responseGoogle}
- //  onFailure={responseGoogle}
- ///>
-
- //  <div id="signInDiv"></div>
-
- /*
- <div id="g_id_onload"
-     data-client_id="822223969254-ra5lshj8c87cn5mml2dfbms22e1boa8d.apps.googleusercontent.com"
-     data-context="signin"
-     data-ux_mode="popup"
-     data-login_uri="http://localhost:3000"
-     data-auto_prompt="false">
-</div>
-
-<div class="g_id_signin"
-     data-type="standard"
-     data-shape="pill"
-     data-theme="filled_black"
-     data-text="signin_with"
-     data-size="large"
-     data-logo_alignment="left">
-</div>
- */
-    //<API/>
-
-/*
-<div id="signInDiv"></div>
-          <div class="g_id_signout">
-            <button onclick={signOut}>Sign Out</button>
-          </div>
-*/
     return (<div>
     	    <div className="App">
-          <button onClick={signOut}>ABC</button>
+         
           <div id="buttonDiv"></div>
-          <div id="g_id_onload"
-     data-client_id="822223969254-ra5lshj8c87cn5mml2dfbms22e1boa8d.apps.googleusercontent.com"
-     data-login_uri="http://localhost:3000"
-     data-your_own_param_1_to_login="any_value"
-     data-your_own_param_2_to_login="any_value">
-</div>
-          <div class="g_id_signout">Sign Out</div>
       <div className='container-fluid'>
        
         <div className='row'>
