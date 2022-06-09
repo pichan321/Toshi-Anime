@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 //import GoogleLogin from 'react-google-login';
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { Auth0Provider } from "@auth0/auth0-react";
 import LoginButton from './LoginButton';
 
@@ -18,6 +18,7 @@ export default function Home() {
     const [gmail, setGmail] = useState("");
     const [logout, setLogout] = useState(false)
     const [photo, setPhoto] = useState("")
+    const [redirect, setRedirect] = useState(false)
 
     const firebaseConfig = {
       apiKey: "AIzaSyCciSrlwEnNo_ZImX04RjHqdjKRwBstPDg",
@@ -25,9 +26,10 @@ export default function Home() {
       projectId: "toshi-anime-eecb6",
       storageBucket: "toshi-anime-eecb6.appspot.com",
       messagingSenderId: "1094842378063",
-      appId: "1:1094842378063:web:cc39dbfe88fb448b14473a"
+      appId: "1:1094842378063:web:205a37ff5ac59ce714473a"
     };
- 
+    
+    
   
     
     // Initialize Firebase
@@ -37,29 +39,57 @@ export default function Home() {
 
     const provider = new GoogleAuthProvider();
     
+    provider.setCustomParameters({
+      'login_hint': 'user@example.com'
+    });
     function signInWithGoogle() {
-      signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    console.log(result.user.photoURL)
-    
-    setPhoto(result.user.photoURL)
+      provider.setCustomParameters({
+        prompt: 'select_account'
+     });
+ //    signInWithPopup(auth, provider)
+ // .then((result) => {
+ //   // This gives you a Google Access Token. You can use it to access the Google API.
+ //   const credential = GoogleAuthProvider.credentialFromResult(result);
+ //   const token = credential.accessToken;
+ //   // The signed-in user info.
+ //   const user = result.user;
+ //   setPhoto(result.user.photoURL)
+ //   // ...
+ // }).catch((error) => {
+ //   // Handle Errors here.
+ //   const errorCode = error.code;
+ //   const errorMessage = error.message;
+ //   // The email of the user's account used.
+ //   const email = error.customData.email;
+ //   // The AuthCredential type that was used.
+ //   const credential = GoogleAuthProvider.credentialFromError(error);
+ //   // ...
+ // });
+     signInWithPopup(auth, provider)
+ .then((result) => {
+   // This gives you a Google Access Token. You can use it to access the Google API.
+   const credential = GoogleAuthProvider.credentialFromResult(result);
+   const token = credential.accessToken;
+   // The signed-in user info.
+   const user = result.user;
+   console.log(result.user.photoURL)
+   
+   setPhoto(result.user.photoURL)
 
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
+   // ...
+ }).catch((error) => {
+   // Handle Errors here.
+   const errorCode = error.code;
+   const errorMessage = error.message;
+   // The email of the user's account used.
+   const email = error.customData.email;
+   // The AuthCredential type that was used.
+   const credential = GoogleAuthProvider.credentialFromError(error);
+   // ...
+ });
+  //signInWithRedirect(auth, provider);
+  
+     setRedirect(!redirect)
     }
 
     function signOutGoogle() {
@@ -69,6 +99,7 @@ export default function Home() {
       }).catch((error) => {
         // An error happened.
       });
+   
     }
     /*
     signInWithPopup(auth, provider)
@@ -141,6 +172,9 @@ export default function Home() {
     setLogout(!logout)
     } 
   */
+    useEffect(() => {
+      console.log(auth);
+    }, [redirect])
 
 
     useEffect(() => {
@@ -164,6 +198,28 @@ export default function Home() {
     //google.accounts.id.prompt(); // also display the One Tap dialog
     },[])
 
+    function getResult() {
+      getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user)
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+    }
+
 
     return (<>
      
@@ -177,6 +233,7 @@ export default function Home() {
           <div id="buttonDiv"></div>
           <button type="button" onClick={signInWithGoogle}>Sign In</button>
           <button type="button" onClick={signOutGoogle}>Sign Out</button>
+          <button type="button" onClick={getResult}>Get</button>
           {photo !== "" && <img src={photo} alt=""/>}
           
       <div className='container-fluid'>
