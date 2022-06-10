@@ -25,8 +25,11 @@ export default function SearchAnimePopup(props) {
     <div className='row'>
         <div className='col-0 col-lg-1'></div>
         <div className='col-12 col-lg-10'>
+        <div className="close-button-container-popup text-end" onClick={() => onCloseButtonClick()}>
+            <CloseButton className="close-button-popup" color="#4FD1C5" width="30px" height="30px"/>
+        </div>
      <div className='popup'>
-    <div className="close-button-container" onClick={() => onCloseButtonClick()}><CloseButton className="close-button" color="#4FD1C5" width="30px" height="30px"/></div>
+    
     <img src={props.popupData.images.jpg.large_image_url} alt=""/>     
         <p>{props.popupData.title_english ? props.title_english : props.title_japanese}</p>
         <p>{props.popupData.synopsis}</p>

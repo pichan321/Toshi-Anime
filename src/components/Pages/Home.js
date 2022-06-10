@@ -9,8 +9,6 @@ import jwt_decode from "jwt-decode";
 //import GoogleLogin from 'react-google-login';
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
-import { Auth0Provider } from "@auth0/auth0-react";
-import LoginButton from './LoginButton';
 
 
 export default function Home() {
@@ -247,10 +245,8 @@ export default function Home() {
         
         </div>
         <Anime category="Top Anime"/>
+        <Anime category="Current Season"/>
         <Anime category="Upcoming"/>
-
-      
-       
         <br/>
        
       </div>

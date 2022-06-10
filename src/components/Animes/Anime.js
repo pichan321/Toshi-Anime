@@ -36,6 +36,8 @@ export default class Anime extends React.Component {
         switch (category) {
             case "Top Anime": return ("https://api.jikan.moe/v4/top/anime");
             case "Upcoming" : return ("https://api.jikan.moe/v4/seasons/upcoming");
+            case "Current Season": return ("https://api.jikan.moe/v4/seasons/now");
+            case "Recommendations": return ("https://api.jikan.moe/v4/recommendations/anime")
             default: return "";
         };
     }
