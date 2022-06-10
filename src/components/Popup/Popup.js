@@ -42,7 +42,7 @@ export default class Popup extends React.Component {
                 <CloseButton className="popup-close-button" color="#4FD1C5" width="30px" height="30px"/>
             </div>
          <div className='popup'>
-            <div className='container-fluid'>
+            <div className='container-fluid m-3'>
                 <div className='row'>
                     <div className='col-12 col-lg-3'>
                         <img className="poster-image img-fluid mx-auto d-flex" src={this.props.data.images.jpg.large_image_url} alt=""/>   
