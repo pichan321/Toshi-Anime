@@ -6,6 +6,7 @@ import Menu from './Menu.js';
 import SearchButton from '../Buttons/SearchButton';
 import { Link, Navigate, useNavigate, Redirect} from 'react-router-dom';
 import AccountInfo from './AccountInfo';
+import Account from './Account';
 
 export default function Nav(props) {
     const defaultProfile = Logo
@@ -42,11 +43,14 @@ export default function Nav(props) {
     //    console.log("Hamburger is toggled");
     //}, [isOpen]);
 
+
+    //<img src={profileImage} alt="Killua" className='profile' onClick={showAccountInfoHandle}/>
     return (<div className="navbar">
                 <div className='hamburger-and-logo'>
                     <Hamburger color="#4FD1C5" rounded distance="md" toggled={isOpen} toggle={setOpen}/>
                     {isOpen && <Menu/>}
-                    <img src={profileImage} alt="Killua" className='logo' onClick={showAccountInfoHandle}/>
+                    <Account profile={profileImage}/>
+                    
                     {showAccountInfo && <AccountInfo profileImage={profileImage} setProfileImage={setProfileImage}/>}
                 </div>
 

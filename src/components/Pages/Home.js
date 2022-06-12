@@ -9,6 +9,8 @@ import jwt_decode from "jwt-decode";
 //import GoogleLogin from 'react-google-login';
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
+import LoginButton from '../../Auth0/LoginButton';
+import Profile from '../../Auth0/Profile';
 
 
 export default function Home() {
@@ -224,6 +226,10 @@ export default function Home() {
           <button type="button" onClick={getResult}>Get</button>
     */
 
+
+    //<Profile/>
+    //<LoginButton/>
+    //
     return (<>
      
     
@@ -231,8 +237,7 @@ export default function Home() {
           
     	    <div className="App">
       
-         
-           
+          
          
           {photo !== "" && <img src={photo} alt=""/>}
           
