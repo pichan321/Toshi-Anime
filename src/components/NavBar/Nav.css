@@ -20,7 +20,7 @@ body {
     height: 3em;
 }
 
-.logo {
+.profile {
     border-radius: 50%;
     height: 50px;
 }
@@ -61,4 +61,9 @@ body {
     color: black;
 }
 
- 
+.loggedin {
+    color: #4FD1C5;
+    background: #2A2B2A;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+}

@@ -226,6 +226,10 @@ export default function Home() {
           <button type="button" onClick={getResult}>Get</button>
     */
 
+
+    //<Profile/>
+    //<LoginButton/>
+    //
     return (<>
      
     
@@ -233,8 +237,7 @@ export default function Home() {
           
     	    <div className="App">
       
-          <Profile/>
-          <LoginButton/>
+          
          
           {photo !== "" && <img src={photo} alt=""/>}
           
